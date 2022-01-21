@@ -25,7 +25,7 @@
     </Page.Resources>
 
 
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition/>
@@ -41,19 +41,19 @@
             <TextBlock TextWrapping="Wrap" Text="Avoid These" HorizontalAlignment="Center" VerticalAlignment="Stretch" Foreground="White"/>
             <ContentControl Template="{DynamicResource EnemyTemplate}" Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="80" Height="80"/>
         </StackPanel>
-        <Canvas x:Name="playArea" Grid.Row="1" Grid.ColumnSpan="3">
+        <Canvas x:Name="playArea" Grid.Row="1" Grid.ColumnSpan="3" MouseMove="playArea_MouseMove" MouseLeave="playArea_MouseLeave">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
                     <GradientStop Color="#FFA640EE" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
-            <StackPanel x:Name="human" Orientation="Vertical" Canvas.Left="30" Canvas.Top="28">
+            <StackPanel x:Name="human" Orientation="Vertical" Canvas.Left="30" Canvas.Top="28" MouseDown="human_MouseDown">
                 <Ellipse Fill="White" Width="10" Height="10"/>
                 <Rectangle Fill="White" Width="10" Height="10" RenderTransformOrigin="-3.7,2.2"/>
             </StackPanel>
             <TextBlock x:Name="gameOverText" Canvas.Left="445" TextWrapping="Wrap" Text="Game Over" Canvas.Top="157" FontSize="90" FontFamily="Arial Black"/>
-            <Rectangle x:Name="target" Height="50" Canvas.Left="1285" Stroke="#FF6F7D4B" Canvas.Top="394" Width="50" RenderTransformOrigin="0.641,0.613">
+            <Rectangle x:Name="target" Height="50" Canvas.Left="1285" Stroke="#FF6F7D4B" Canvas.Top="394" Width="50" RenderTransformOrigin="0.641,0.613" MouseEnter="target_MouseEnter">
                 <Rectangle.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="Black" Offset="1"/>
